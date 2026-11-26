@@ -44,6 +44,33 @@ class WelcomeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16),
               ),
+              SizedBox(height: 100),
+              FilledButton(
+                onPressed: () {},
+                child: Text('Sign in'),
+                style: FilledButton.styleFrom(
+                  minimumSize: Size(0, 48),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  backgroundColor: Color(0xFF00695C),
+                  foregroundColor: Color(0xFFF5F7F7),
+                ),
+              ),
+              SizedBox(height: 20),
+              OutlinedButton(
+                onPressed: () {},
+                child: Text('Create Account'),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: Size(0, 48),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  backgroundColor: Color(0xFFF5F7F7),
+                  foregroundColor: Color(0xFF00695C),
+                  side: BorderSide(color: Color(0xFF00695C)),
+                ),
+              ),
             ],
           ),
         ),
