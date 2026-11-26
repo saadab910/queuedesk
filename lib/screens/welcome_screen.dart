@@ -5,28 +5,49 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: const Color(0xFFF5F7F7),
-      body: SafeArea(child: Padding(padding: const EdgeInsets.all(24),
-        child:  const Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.stretch,children: [
-          Text ('QueueDesk',
-              textAlign: TextAlign.center,
-              style:TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold)
+    return Scaffold(
+      backgroundColor: const Color(0xFFF5F7F7),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      width: 4,
+                      height: 28,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF00695C),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(Icons.build, size: 40, color: Color(0xFF00695C)),
+                  ],
+                ),
+              ),
+              SizedBox(height: 16),
+
+              Text(
+                'QueueDesk',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 8),
+              Text(
+                'Track repairs from drop-off to pickup.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
           ),
-          SizedBox(
-              height:8
-          ),
-          Text('Track repairs from drop-off to pickup.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16
-            ),
-          )
-        ],
         ),
       ),
-    ),
     );
   }
 }
