@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sign_in_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -46,7 +47,14 @@ class WelcomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 100),
               FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const SignInScreen(),
+                      ),
+                  );
+                },
                 child: Text('Sign in'),
                 style: FilledButton.styleFrom(
                   minimumSize: Size(0, 48),
