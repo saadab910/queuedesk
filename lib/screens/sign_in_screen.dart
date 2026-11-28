@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,9 @@ class SignInScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(24),
-            child: Column(
+            child: Form(
+              key: _formKey,
+              child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
@@ -34,6 +43,21 @@ class SignInScreen extends StatelessWidget {
                   height: 24,
                 ),
                 TextFormField(
+                  validator: ( value){
+                    final email = value?.trim() ?? '';
+                    if(email.isEmpty){
+                      return 'Enter your email';
+                    }
+                    final parts = email.split('@');
+                    if(parts.length != 2){
+                      return 'Enter a valid email address';
+                    }if(parts[0].isEmpty || parts[1].isEmpty || email.contains(' ') ){
+                     return 'Enter a valid email address';
+                    }
+                    
+                    return null;
+
+                  },
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     labelText: 'Email',
@@ -60,7 +84,7 @@ class SignInScreen extends StatelessWidget {
                 ),
                 FilledButton(
                     onPressed: () {
-
+                      _formKey.currentState?.validate();
                     },
                     style: FilledButton.styleFrom(
                       backgroundColor: const Color(0xFF00695C),
@@ -77,6 +101,7 @@ class SignInScreen extends StatelessWidget {
           ),
         ),
       ),
+    ),
     );
   }
 }
